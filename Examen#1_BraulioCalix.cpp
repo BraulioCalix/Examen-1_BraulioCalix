@@ -7,6 +7,8 @@ char** llenado (char**);
 int* lectura();
 bool cmueve(char**,int,int,int,int);
 int main (){//el main
+
+	cout << "codigo que ni yo se que pedos... " << endl;
 	int* movimiento=NULL;
 	int* posicion= NULL;	
 	char** matriz= NULL;
@@ -32,22 +34,24 @@ int main (){//el main
 				}
 
 			}
-			bool mover=true;;
+			bool mover=true;
+			bool si=false;
 			while(mover==true){
+				cout << "codigo que ni yo se que pedos... " << endl;
 				cout << "ingrese la posicion a donde lo quiere mover" <<endl;
 				movimiento=lectura();
 				if(matriz[movimiento[0]][movimiento[1]==' ']){
-					mover=cmueve(matriz,posicion[0],posicion[1],movimiento[0],movimiento[1]);	
-
+					si=cmueve(matriz,posicion[0],posicion[1],movimiento[0],movimiento[1]);	
 				}
-				if(mover==true){
+				if(si==true){
 					matriz[posicion[0]][posicion[1]]=' ';
 					matriz[movimiento[0]][movimiento[1]]='M';
-				cout << "real" << endl;
+					mover= false;
+					cout << "real" << endl;
 				}else{
-				cout << "no lo es" <<endl;
-					mover=true;
-				}
+				cout << matriz[posicion[0]][posicion[1]] <<" <-"<< endl;
+				cout << "se mueve a {" <<matriz[movimiento[0]][movimiento[1]]<< "}"<< endl;
+				}	
 			}
 
 			imprimirmat(matriz,11);	
@@ -107,7 +111,9 @@ bool cmueve(char** mat,int x1,int y1,int x2,int y2){
 	cout << "x1 " <<x1 <<"y1 " <<y1 << "x2 "<< x2 << "y2 " <<y2 << endl;
 	bool valido=true;
 	if(x1==x2){//se va a mover de forma horizontal
+		cout << "x es igual" << endl;
 		if(y1 < y2){
+			
 			for(int i=y1;i<=y2;i++){
 				if(mat[x1][i]==' '){
 							
@@ -129,11 +135,12 @@ bool cmueve(char** mat,int x1,int y1,int x2,int y2){
 	}else if(y1==y2){// se va a mover de forma vertical
 		cout << "los y son iguales" << endl;
 		if(x1 < x2){
-
+			cout << "x1 menir"<< endl;
 			for(int i=x1;i<=x2;i++){
 				if(mat[i][y1]==' '){
 				
 				}else{
+					cout << mat[i][y1]<<"en" << endl;
 					valido=false;
 				} 
 			}
